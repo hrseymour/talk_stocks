@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, redirect, url_for, session
+from flask import Flask, request, jsonify, redirect, url_for, session, render_template
 from flask_cors import CORS
 from authlib.integrations.flask_client import OAuth
 
@@ -34,7 +34,8 @@ def is_authenticated(api_key = ''):
 
 @app.route('/')
 def index():
-    return {'status': 'OK'}
+    # return {'status': 'OK'}
+    return render_template('home.html')
 
 @app.route('/quote/<symbol>', methods=['GET'])
 def get_quote(symbol):
